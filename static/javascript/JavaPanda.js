@@ -5,11 +5,11 @@ var tableData = data;
 var tbody = d3.select("#ufo-table");
 
 
-//fill table
-fillTable(data);
 
-//append table
-function fillTable(data) {
+tabble(data);
+
+
+function tabble(data) {
     tbody.html("");
     data.forEach((UFOsights) => {
         var row = tbody.append("tr");
@@ -20,37 +20,36 @@ function fillTable(data) {
     })
 }
 
-// create event handler and filter for input
-// select button
-var button = d3.select("#filter-btn");
+function boom() {
 
-//select form
-var form = d3.select("#form");
-
-//create event handlers
-button.on("click", runEnter);
-form.on("submit", runEnter);
-
-// complete event handler function for the form
-function runEnter() {
-
-    // prevent the page from refreshing
+    
     d3.event.preventDefault();
 
- // select the input element and get the raw html node // select the value property of the input element
- var datetime_input = d3.select("#datetime").property("value");
+ 
+ var j = d3.select("#datetime").property("value");
 
  
- // log input date
- console.log(datetime_input);
  
- //filtered data
- if (datetime_input) {
- var filteredData = data.filter(dates => dates.datetime === datetime_input); }
+ console.log(j);
+ 
+ 
+ if (j) {
+ var k = data.filter(dates => dates.datetime === j); }
 
-    //log filtered values
-    console.log(filteredData);
+    
+    console.log(k);
 
-    //filtered data tables
-    fillTable(filteredData);
+    
+    tabble(k);
 };
+
+
+var button = d3.select("#filter-btn");
+
+var form = d3.select("#form");
+
+
+button.on("click", boom);
+form.on("submit", boom);
+
+
