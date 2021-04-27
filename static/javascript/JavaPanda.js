@@ -1,5 +1,3 @@
-
-// from data.js
 var tableData = data;
 
 var v = d3.select("#ufo-table");
